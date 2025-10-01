@@ -1,35 +1,39 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+
+import HeroSection from "./components/HeroSection";
+import AboutSection from "./components/AboutSection";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import RegistrationForm from "./components/RegistrationForm";
+import ThankYouPage from "./components/ThankYouPage";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [referrer, setReferrer] = useState("");
+
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const ref = urlParams.get("ref") || "unknown";
+    setReferrer(ref);
+  }, []);
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <Router>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <HeroSection />
+              <AboutSection />
+              <RegistrationForm referrer={referrer} />
+            </>
+          }
+        />
+        <Route path="/thank-you" element={<ThankYouPage />} />
+        <Route path="/privacy" element={<PrivacyPolicy />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;
