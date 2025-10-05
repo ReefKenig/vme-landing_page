@@ -14,3 +14,11 @@ section {
   max-width: 800px;
   margin: auto;
 }
+
+section p {
+  line-height: 1.6;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+}
