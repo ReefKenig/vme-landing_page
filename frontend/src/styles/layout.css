@@ -3,7 +3,7 @@
 body {
   direction: rtl;
   font-family: "Rubik", sans-serif;
-  background-color: #f8f9fa;
+  background-color: #a3c8c5;
   margin: 0;
   padding: 0;
   color: #222;
@@ -13,13 +13,4 @@ section {
   padding: 2rem 1rem;
   max-width: 800px;
   margin: auto;
-}
-
-a {
-  color: #007bff;
-  text-decoration: none;
-}
-
-a:hover {
-  text-decoration: underline;
 }
