@@ -31,16 +31,33 @@ export default function RegistrationForm({ referrer }) {
       <h2>הירשמו לגרסת הבטא</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("firstName", { required: "שדה חובה" })}
-          placeholder="שם פרטי"
+          {...register("name", { required: "שדה חובה" })}
+          placeholder="שם מלא"
         />
-        {errors.firstName && <p>{errors.firstName.message}</p>}
+        {errors.name && <p>{errors.name.message}</p>}
+
+        <select {...register("sex", { required: "בחר אפשרות" })}>
+          <option value="">מין</option>
+          <option value="man">גבר</option>
+          <option value="woman">אישה</option>
+        </select>
+        {errors.sex && <p>{errors.sex.message}</p>}
 
         <input
-          {...register("lastName", { required: "שדה חובה" })}
-          placeholder="שם משפחה"
+          {...register("age", {
+            required: "שדה חובה",
+            min: { value: 18, message: "השירות מיועד לבני 18 ומעלה" },
+          })}
+          placeholder="גיל"
+          type="number"
         />
-        {errors.lastName && <p>{errors.lastName.message}</p>}
+        {errors.age && <p>{errors.age.message}</p>}
+
+        <input
+          {...register("city", { required: "שדה חובה" })}
+          placeholder="עיר"
+        />
+        {errors.city && <p>{errors.city.message}</p>}
 
         <input
           {...register("phone", { required: "שדה חובה" })}
@@ -57,42 +74,10 @@ export default function RegistrationForm({ referrer }) {
               message: "כתובת מייל לא חוקית",
             },
           })}
-          placeholder="אימייל"
+          placeholder='דוא"ל'
           type="email"
         />
         {errors.email && <p>{errors.email.message}</p>}
-
-        <input
-          {...register("age", {
-            required: "שדה חובה",
-            min: { value: 18, message: "השירות מיועד לבני 18 ומעלה" },
-          })}
-          placeholder="גיל"
-          type="number"
-        />
-        {errors.age && <p>{errors.age.message}</p>}
-
-        <input
-          {...register("country", { required: "שדה חובה" })}
-          placeholder="מדינה"
-        />
-        {errors.country && <p>{errors.country.message}</p>}
-
-        <input
-          {...register("city", { required: "שדה חובה" })}
-          placeholder="עיר"
-        />
-        {errors.city && <p>{errors.city.message}</p>}
-
-        <select {...register("lookingFor", { required: "בחר אפשרות" })}>
-          <option value="">מה אתם מחפשים?</option>
-          <option value="man">גבר</option>
-          <option value="woman">אישה</option>
-          <option value="both">שני המינים</option>
-        </select>
-        {errors.lookingFor && <p>{errors.lookingFor.message}</p>}
-
-        <textarea {...register("notes")} placeholder="הערות נוספות"></textarea>
 
         <label style={{ display: "block", marginTop: "1rem" }}>
           <input
@@ -104,7 +89,7 @@ export default function RegistrationForm({ referrer }) {
         {errors.consent && <p>{errors.consent.message}</p>}
 
         <button type="submit" disabled={submitting}>
-          {submitting ? "שליחה" : "שולח..."}
+          רוצה להתקדם!
         </button>
       </form>
     </section>
