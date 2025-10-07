@@ -4,9 +4,19 @@ import axios from "axios";
 const router = express.Router();
 
 router.post("/submit", async (req, res) => {
-  const { name, sex, age, city, phone, email, referrer } = req.body;
+  const { firstname, lastname, sex, age, city, phone, email, referrer } =
+    req.body;
 
-  if (!name || !sex || !age || !city || !phone || !email || !referrer) {
+  if (
+    !firstname ||
+    !lastname ||
+    !sex ||
+    !age ||
+    !city ||
+    !phone ||
+    !email ||
+    !referrer
+  ) {
     return res.status(400).json({ message: "Missing required fields" });
   }
 
@@ -17,7 +27,8 @@ router.post("/submit", async (req, res) => {
     // HubSpot contact properties
     const payload = {
       properties: {
-        name,
+        firstname,
+        lastname,
         sex,
         age: age.toString(),
         city,

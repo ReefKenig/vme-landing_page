@@ -37,10 +37,16 @@ export default function RegistrationForm({ referrer }) {
       <h2>הירשמו לגרסת הבטא</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
-          {...register("name", { required: "שדה חובה" })}
-          placeholder="שם מלא"
+          {...register("firstname", { required: "שדה חובה" })}
+          placeholder="שם פרטי"
         />
-        {errors.name && <p>{errors.name.message}</p>}
+        {errors.firstname && <p>{errors.firstname.message}</p>}
+
+        <input
+          {...register("lastname", { required: "שדה חובה" })}
+          placeholder="שם משפחה"
+        />
+        {errors.lastname && <p>{errors.lastname.message}</p>}
 
         <select {...register("sex", { required: "בחר אפשרות" })}>
           <option value="">מין</option>
