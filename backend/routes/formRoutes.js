@@ -1,5 +1,6 @@
 import express from "express";
 import axios from "axios";
+import { sendConfirmationEmail } from "../services/emailService.js";
 
 const router = express.Router();
 
@@ -30,7 +31,7 @@ router.post("/submit", async (req, res) => {
         firstname,
         lastname,
         sex,
-        age: age.toString(),
+        age: age,
         city,
         phone,
         email,
@@ -45,12 +46,15 @@ router.post("/submit", async (req, res) => {
       },
     });
 
+    // Send confirmation email
+    await sendConfirmationEmail(email, firstname);
+
     res
       .status(200)
-      .json({ message: "Contact created in HubSpot", data: response.data });
+      .json({ message: "Contact created and email sent", data: response.data });
   } catch (error) {
-    console.error("HubSpot error:", error.response?.data || error.message);
-    res.status(500).json({ message: "Failed to create contact in HubSpot" });
+    console.error("Submission error:", error.response?.data || error.message);
+    res.status(500).json({ message: "Submission Failed" });
   }
 });
 
