@@ -1,14 +1,16 @@
 import express from "express";
 import axios from "axios";
 import { sendConfirmationEmail } from "../services/emailService.js";
-import { scheduleReminder } from "../services/whatsappService.js";
+import { scheduleReminder, sendWhatsapp } from "../services/whatsappService.js";
+import User from "../schemas/User.js";
 
 const router = express.Router();
 
 router.post("/submit", async (req, res) => {
   const { firstname, lastname, sex, age, city, phone, email, referrer } =
     req.body;
-
+    const user = new User({firstname, lastname, sex, age, city, phone, email, referrer  });
+    sendWhatsapp(user.phone, "hi there!");
   if (
     !firstname ||
     !lastname ||
@@ -54,7 +56,8 @@ router.post("/submit", async (req, res) => {
     if (phone) {
       scheduleReminder(phone, firstname);
     }
-
+ 
+    await user.save();
     res
       .status(200)
       .json({ message: "Contact created and email sent", data: response.data });
