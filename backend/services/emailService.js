@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 export async function sendConfirmationEmail(to, firstname) {
   dotenv.config();
-
+  const calendlyLink = process.env.CALENDLY_LINK;
   const user = process.env.EMAIL_USER;
   const pass = process.env.EMAIL_PASS;
 
@@ -25,7 +25,7 @@ export async function sendConfirmationEmail(to, firstname) {
         <p>תודה שנרשמת לגרסת הבטא שלנו. בקרוב ניצור איתך קשר</p>
         <p>
           ניתן כבר לקבוע שיחת היכרות קצרה כאן:
-          <a href="https://calendly.com/vme-intro/5min">Calendly</a>
+          <a href=${calendlyLink}>Calendly</a>
         </p>
         <p>צוות V-Me❤</p>
       </div>

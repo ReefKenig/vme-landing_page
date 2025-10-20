@@ -1,6 +1,6 @@
 import dotenv from "dotenv";
 dotenv.config();
-
+import "./services/cronService.js";
 import express from "express";
 import cors from "cors";
 import formRoutes from "./routes/formRoutes.js";

@@ -67,4 +67,29 @@ router.post("/submit", async (req, res) => {
   }
 });
 
+
+
+router.post("/calendly/webhook", async (req, res) => {
+
+  try {
+    const event = req.body;
+
+    if (event.event === "invitee.created") {
+       const email = event.payload?.email;
+      console.log("New Calendly booking from:", email);
+
+      // Update the user in MongoDB
+      await User.findOneAndUpdate(
+        { email },
+        { calendlyBooked: true },
+        { new: true }
+      );
+    }
+
+    res.status(200).send("OK");
+  } catch (err) {
+    console.error("Calendly webhook error:", err);
+    res.status(500).send("Server error");
+  }
+});
 export default router;

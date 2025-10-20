@@ -1,6 +1,6 @@
 import cron from "node-cron";
 import mongoose from "mongoose";
-import User from "./User.js"; // your Mongoose model
+import User from "../schemas/User.js"; // your Mongoose model
 import { sendWhatsapp } from "./whatsappService.js";
 
 // Connect to MongoDB
@@ -11,7 +11,9 @@ mongoose.connect("mongodb://localhost:27017/landingPage", {
 
 // --- Cron job ---
 // Run every 10 minutes between 9:00–20:59, Sunday to Friday
-cron.schedule("*/10 9-20 * * 0-5", async () => {
+cron.schedule("*/1 9-20 * * 0-5", async () => {
+console.log("RUNNING CRON");
+
   try {
     // Get current Israel local time
     const now = new Date();
@@ -35,13 +37,13 @@ cron.schedule("*/10 9-20 * * 0-5", async () => {
     });
 
     for (const user of usersToRemind) {
-      await sendWhatsapp(
-        `whatsapp:${user.phoneNumber}`,
-        `שלום ${user.name}, שכחת לקבוע פגישה עם היוצר של האפליקציה? לחץ כאן כדי לקבוע: https://calendly.com/yourname/beta-call`
-      );
+      // await sendWhatsapp(
+      //   `whatsapp:${user.phoneNumber}`,
+      //   `שלום ${user.name}, שכחת לקבוע פגישה עם היוצר של האפליקציה? לחץ כאן כדי לקבוע: https://calendly.com/yourname/beta-call`
+      // );
       user.reminderSent = true;
-      await user.save;
-      console.log(`Sent WhatsApp reminder to ${user.name}`);
+      await user.save();
+      console.log(`Sent WhatsApp reminder to ${user.firstname}`);
     }
   } catch (err) {
     console.error("Cron job error:", err);
