@@ -1,6 +1,9 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
 
-const uri = "mongodb://localhost:27017/landingPage"; // replace with your MongoDB URI
+
+dotenv.config();
+const uri = process.env.MONGO_URL;
 mongoose.connect(uri, { 
   useNewUrlParser: true, 
   useUnifiedTopology: true 
