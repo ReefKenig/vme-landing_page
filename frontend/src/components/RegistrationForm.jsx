@@ -19,7 +19,7 @@ export default function RegistrationForm({ referrer }) {
     try {
       const formData = { ...data, referrer };
       const response = await axios.post(
-        "http://localhost:5000/api/submit",
+        "https://vme-landing-page.onrender.com/api/submit",
         formData
       );
       console.log("Response:", response.data);
@@ -91,13 +91,32 @@ export default function RegistrationForm({ referrer }) {
         />
         {errors.email && <p>{errors.email.message}</p>}
 
-        <label style={{ display: "block", marginTop: "1rem" }}>
-          <input
-            type="checkbox"
-            {...register("consent", { required: "יש לאשר את התנאים" })}
-          />{" "}
-          אני מאשר/ת את מדיניות הפרטיות ותנאי השימוש
-        </label>
+      <label style={{ display: "block", marginTop: "1rem", direction: "rtl" }}>
+  <input
+    type="checkbox"
+    {...register("consent", { required: "יש לאשר את התנאים" })}
+    style={{ marginLeft: "0.5rem" }}
+  />
+  אני מאשר/ת את{" "}
+  <a
+    href="https://vme-landingpage-videos.s3.eu-north-1.amazonaws.com/files/privacyPolicy.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "#007bff", textDecoration: "underline" }}
+  >
+    מדיניות הפרטיות
+  </a>{" "}
+  ו
+  <a
+    href="https://vme-landingpage-videos.s3.eu-north-1.amazonaws.com/files/condotions.pdf"
+    target="_blank"
+    rel="noopener noreferrer"
+    style={{ color: "#007bff", textDecoration: "underline" }}
+  >
+    תנאי השימוש
+  </a>
+</label>
+
         {errors.consent && <p>{errors.consent.message}</p>}
 
         <button type="submit" disabled={submitting}>
