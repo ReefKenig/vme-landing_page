@@ -1,7 +1,7 @@
 import cron from "node-cron";
 import mongoose from "mongoose";
 import User from "../schemas/User.js"; // your Mongoose model
-import { sendWhatsapp } from "./whatsappService.js";
+// import { sendWhatsapp } from "./whatsappService.js";
 import dotenv from "dotenv";
 
 
@@ -40,15 +40,15 @@ console.log("RUNNING CRON");
       reminderSent: false,
     });
 
-    for (const user of usersToRemind) {
-      // await sendWhatsapp(
-      //   `whatsapp:${user.phoneNumber}`,
-      //   `שלום ${user.name}, שכחת לקבוע פגישה עם היוצר של האפליקציה? לחץ כאן כדי לקבוע: https://calendly.com/yourname/beta-call`
-      // );
-      user.reminderSent = true;
-      await user.save();
-      console.log(`Sent WhatsApp reminder to ${user.firstname}`);
-    }
+    // for (const user of usersToRemind) {
+    //   await sendWhatsapp(
+    //     `whatsapp:${user.phoneNumber}`,
+    //     `שלום ${user.name}, שכחת לקבוע פגישה עם היוצר של האפליקציה? לחץ כאן כדי לקבוע: https://calendly.com/yourname/beta-call`
+    //   );
+    //   user.reminderSent = true;
+    //   await user.save();
+    //   console.log(`Sent WhatsApp reminder to ${user.firstname}`);
+    // }
   } catch (err) {
     console.error("Cron job error:", err);
   }

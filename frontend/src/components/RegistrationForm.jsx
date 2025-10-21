@@ -21,6 +21,7 @@ export default function RegistrationForm({ referrer }) {
       const response = await axios.post(
         "https://vme-landing-page.onrender.com/api/submit",
         formData
+        
       );
       console.log("Response:", response.data);
       navigate("/thank-you");
