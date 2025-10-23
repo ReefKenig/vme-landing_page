@@ -35,7 +35,9 @@ export default function RegistrationForm({ referrer }) {
 
   return (
     <section>
-      <h2>הירשמו לגרסת הבטא</h2>
+      <p>סקרנתם אותי! איך מתקדמים?</p>
+      <h2>כאן תעשו את הצעד הבא לעבר אהבה</h2>
+      <p>מלאו פרטים להרשמה</p>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           {...register("firstname", { required: "שדה חובה" })}
@@ -133,10 +135,13 @@ export default function RegistrationForm({ referrer }) {
 
         {errors.consent && <p>{errors.consent.message}</p>}
 
-        <button type="submit" disabled={submitting}>
-          רוצה להתקדם!
-        </button>
+        <div className="submitFrame">
+          <button type="submit" disabled={submitting}>
+            רוצה להתקדם!
+          </button>
+        </div>
       </form>
+      <img src="" alt="Logo M" />
     </section>
   );
 }

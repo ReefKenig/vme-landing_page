@@ -24,7 +24,7 @@ function App() {
           element={
             <>
               <HeroSection />
-              <AboutSection />
+              {/* <AboutSection /> */}
               <RegistrationForm referrer={referrer} />
             </>
           }

@@ -8,6 +8,12 @@ export default function HeroSection() {
         controls
         style={styles.video}
       />
+      <h1>
+        צוות מופלא של אנשי מקצוע מתחום הטיפול והאימון שליוו מאות מחפשי אהבה,
+        החליטו ליצור שינוי ובנו את
+      </h1>
+      {/* Logo with heart in the middle */}
+      <h1>פלטפורמה שהופכת את המסע למציאת אהבה ליותר קל, זורם ואותנטי</h1>
     </section>
   );
 }
