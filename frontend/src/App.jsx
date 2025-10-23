@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import HeroSection from "./components/HeroSection";
 import AboutSection from "./components/AboutSection";
-import PrivacyPolicy from "./components/PrivacyPolicy";
+import UniqunessSection from "./components/UniquenessSection";
+import PersonalNotesSection from "./components/PersonalNotesSection";
 import RegistrationForm from "./components/RegistrationForm";
 import ThankYouPage from "./components/ThankYouPage";
 
@@ -24,13 +25,14 @@ function App() {
           element={
             <>
               <HeroSection />
-              {/* <AboutSection /> */}
+              <AboutSection />
+              <UniqunessSection />
+              <PersonalNotesSection />
               <RegistrationForm referrer={referrer} />
             </>
           }
         />
         <Route path="/thank-you" element={<ThankYouPage />} />
-        <Route path="/privacy" element={<PrivacyPolicy />} />
       </Routes>
     </Router>
   );
