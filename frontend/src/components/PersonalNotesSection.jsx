@@ -1,8 +1,15 @@
+import "../styles/personalNotes.css";
+import logo_me from "../assets/Vme_logo-ME.png";
+import ceo from "../assets/lina.png";
+import heart_key from "../assets/heart_key.png";
+
 export default function PersonalNotesSection() {
   return (
     <section>
-      <img src="" alt="Logo me" />
-      <img src="" alt="CEO picture" />
+      <div className="headline">
+        <img src={logo_me} alt="Logo me" />
+        <img src={ceo} alt="CEO picture" />
+      </div>
       <h3>מסר אישי ממני, המייסדת...</h3>
       <p>
         בפנים, כולנו רוצים את אותו הדבר: שייכות ואהבה. למצוא אדם שנרגיש איתו
@@ -13,7 +20,7 @@ export default function PersonalNotesSection() {
         אמון במי שמולנו. העולם המודרני והמרוץ הטכנולוגי רק מחזקים את התחושה הזו
         וגורמים לנו לסגור את הלב במקום לפתוח אותו.
       </p>
-      <img src="" alt="heart" />
+      <img src={heart_key} alt="heart" id="heartKey" />
       <p>
         במשך שנים עזרתי לאנשים לתקשר ולהביע את עצמם דרך הרשתות החברתיות ובערוצי
         תקשורת שונים והרגשתי שצריך לקחת את זה צעד אחד קדימה כדי לעזור ליותר
