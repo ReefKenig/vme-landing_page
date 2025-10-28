@@ -83,8 +83,7 @@ h3 {
 }
 
 #shield {
-  width: 30%;
-  max-width: 60%;
+  width: 20%;
   margin: -2rem auto;
 }
 
@@ -135,33 +134,6 @@ h3 {
     width: 90%;
     margin: 2rem 0;
   }
-
-  /* .headline > img.ceo {
-    min-height: auto;
-    width: 60%;
-    max-width: 280px;
-  }
-
-  .headline > img.logo-me {
-    margin-bottom: 0;
-    width: 40%;
-    max-width: 200px;
-  }
-
-  h3 {
-    font-size: 22px;
-  }
-
-  p {
-    font-size: 1rem;
-    line-height: 1.5;
-  }
-
-  #hands {
-    width: 90%;
-    height: auto;
-    margin: 2rem 0;
-  } */
 }
 
 /* === Mobile view === */
@@ -192,17 +164,20 @@ h3 {
   #heart-key {
     width: 100%;
     margin: -9rem auto;
+    max-width: 500px;
   }
 
   #shield {
-    width: 60%;
+    width: 30%;
     max-width: 80%;
     margin: -1rem auto;
   }
 
   #hands {
     width: 100%;
-    margin: -4rem auto;
+    margin-top: -4rem;
+    margin-bottom: -4rem;
+    margin-left: 1.5rem;
   }
 
   h3 {
@@ -212,6 +187,7 @@ h3 {
   p {
     font-size: 0.95rem;
     line-height: 1.6;
+    padding: 0 1rem;
   }
 
   .signature {
