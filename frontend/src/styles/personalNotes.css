@@ -1,3 +1,4 @@
+/* === Custom Font === */
 @font-face {
   font-family: "GveretLevin";
   src: url("../assets/fonts/GveretLevin.ttf") format("truetype");
@@ -5,57 +6,17 @@
   font-style: normal;
 }
 
+/* === Base Layout */
 section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.headline {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: nowrap;
-  width: 100%;
-}
-
-.headline > img {
-  display: block;
-  width: auto;
-  max-width: 45%;
-  max-height: 180px;
-  height: auto;
-  object-fit: contain;
-}
-
-.headline > img.logo-me {
-  max-width: 30%;
-  max-height: 120px;
-  align-self: flex-end;
-  margin-bottom: 5rem;
-}
-
-.headline > img.ceo {
-  min-height: 400px;
-  background: none;
-}
-
 .alignRight {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-}
-
-.signature {
-  font-family: GveretLevin, sans-serif;
-}
-
-#heartKey {
-  display: block;
-  max-width: 100%;
-  margin: -12rem auto;
 }
 
 h3,
@@ -66,6 +27,70 @@ p {
 
 h3 {
   font-size: 26px;
+}
+
+/* === Signature === */
+.signature {
+  font-family: "GveretLevin", sans-serif;
+}
+
+/* === Headline (CEO + Logo) === */
+.headline {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  flex-wrap: nowrap;
+}
+
+.headline img {
+  display: block;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  max-height: 180px;
+  max-width: 35%;
+}
+
+/* CEO Image */
+#ceo {
+  min-height: 400px;
+  background: none;
+}
+
+/* Logo image */
+#logo-me {
+  max-width: 30%;
+  max-height: 120px;
+  align-self: flex-end;
+  margin-bottom: 2rem;
+}
+
+/* === Decorative Images === */
+#heart-key,
+#hands,
+#shield {
+  display: block;
+  margin: 0 auto;
+  height: auto;
+}
+
+#heart-key {
+  max-width: 100%;
+  margin: -12rem auto;
+}
+
+#shield {
+  width: 30%;
+  max-width: 60%;
+  margin: -2rem auto;
+}
+
+#hands {
+  max-width: 100%;
+  margin: -7rem auto;
 }
 
 /* === Tablet view === */
@@ -79,7 +104,39 @@ h3 {
     gap: 0.5rem;
   }
 
-  .headline > img.ceo {
+  #ceo {
+    min-height: auto;
+    width: 60%;
+    max-width: 280px;
+  }
+
+  #logo-me {
+    margin-bottom: 0;
+    width: 40%;
+    max-width: 200px;
+  }
+
+  h3 {
+    font-size: 22px;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  #shield {
+    width: 50%;
+    max-width: 70%;
+    margin: -1.5rem auto;
+  }
+
+  #hands {
+    width: 90%;
+    margin: 2rem 0;
+  }
+
+  /* .headline > img.ceo {
     min-height: auto;
     width: 60%;
     max-width: 280px;
@@ -104,7 +161,7 @@ h3 {
     width: 90%;
     height: auto;
     margin: 2rem 0;
-  }
+  } */
 }
 
 /* === Mobile view === */
@@ -119,22 +176,33 @@ h3 {
     text-align: center;
   }
 
-  .headline > img.ceo {
+  #ceo {
     width: 80%;
     max-width: 130px;
     align-self: flex-start;
   }
 
-  .headline > img.logo-me {
+  #logo-me {
     width: 50%;
     max-width: 180px;
     margin-top: -5.5rem;
     align-self: flex-end;
   }
 
-  #heartKey {
-    margin: -4rem auto;
+  #heart-key {
     width: 100%;
+    margin: -9rem auto;
+  }
+
+  #shield {
+    width: 60%;
+    max-width: 80%;
+    margin: -1rem auto;
+  }
+
+  #hands {
+    width: 100%;
+    margin: -4rem auto;
   }
 
   h3 {

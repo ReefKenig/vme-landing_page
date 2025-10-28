@@ -9,8 +9,8 @@ export default function PersonalNotesSection() {
   return (
     <section>
       <div className="headline">
-        <img src={ceo} alt="CEO picture" className="ceo" />
-        <img src={logo_me} alt="Logo me" className="logo-me" />
+        <img src={ceo} alt="CEO picture" id="ceo" />
+        <img src={logo_me} alt="Logo me" id="logo-me" />
       </div>
       <div className="alignRight">
         <h3>מסר אישי ממני, המייסדת...</h3>
@@ -24,7 +24,7 @@ export default function PersonalNotesSection() {
           התחושה הזו וגורמים לנו לסגור את הלב במקום לפתוח אותו.
         </p>
       </div>
-      <img src={heart_key} alt="heart" id="heartKey" />
+      <img src={heart_key} alt="heart" id="heart-key" />
       <div className="alignRight">
         <p>
           במשך שנים עזרתי לאנשים לתקשר ולהביע את עצמם דרך הרשתות החברתיות
@@ -43,7 +43,7 @@ export default function PersonalNotesSection() {
           אפליקציה כפי שחוויתם עד היום אלא פלטפורמה שנבנתה מתוך שליחות אמיתית.
         </p>
       </div>
-      <img src={shield} alt="hands with shield" />
+      <img src={shield} alt="hands with shield" id="shield" />
       <div className="alignRight">
         <p>
           המייזם שלנו עבר דרך משמעותית בשנה האחרונה, בליווי מנטורים בכירים
