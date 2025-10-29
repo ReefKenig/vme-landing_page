@@ -7,8 +7,10 @@
   padding: 3rem 0 4rem 0;
   direction: rtl;
   width: 100%;
-  overflow: hidden;
+  max-width: 100%;
+  overflow-x: hidden;
   min-height: 100vh;
+  box-sizing: border-box;
 }
 
 /* Logo styling with colorful effect */
@@ -55,6 +57,7 @@
 
   .uniqueness-features-container {
     padding: 0 1rem !important;
+    max-width: 90% !important;
   }
 
   .uniqueness-bottom-section {
@@ -62,13 +65,20 @@
   }
 
   .uniqueness-title {
-    font-size: 36px !important;
-    flex-direction: column !important;
-    gap: 0.8rem !important;
+    font-size: 32px !important;
+    flex-wrap: wrap !important;
+    gap: 0.5rem !important;
+    justify-content: center !important;
+  }
+
+  .uniqueness-title span {
+    font-size: 38px !important;
+    transform: translateY(15px) !important;
   }
 
   .uniqueness-logo-image {
-    height: 50px !important;
+    height: 100px !important;
+    width: 200px !important;
   }
 
   .uniqueness-feature-card {
@@ -77,12 +87,13 @@
   }
 
   .uniqueness-check-icon {
-    width: 35px !important;
-    height: 35px !important;
+    width: 45px !important;
+    height: 45px !important;
+    transform: translateY(-10px) !important;
   }
 
   .uniqueness-feature-text {
-    font-size: 28px !important;
+    font-size: 26px !important;
   }
 
   .uniqueness-bottom-section {
@@ -118,13 +129,14 @@
 
   .uniqueness-header {
     padding: 0 0.75rem !important;
-    flex-direction: column !important;
     margin-bottom: 1.5rem !important;
-    gap: 0.5rem !important;
   }
 
   .uniqueness-features-container {
     padding: 0 0.75rem !important;
+    gap: 1rem !important;
+    margin-bottom: 2rem !important;
+    max-width: 95% !important;
   }
 
   .uniqueness-bottom-section {
@@ -132,24 +144,25 @@
   }
 
   .uniqueness-title {
-    font-size: 28px !important;
+    font-size: 24px !important;
     flex-direction: column !important;
     text-align: center !important;
-    gap: 0.6rem !important;
+    gap: 0.5rem !important;
+  }
+
+  .uniqueness-title span {
+    font-size: 28px !important;
+    transform: translateY(0px) !important;
   }
 
   .uniqueness-logo-image {
-    height: 45px !important;
+    height: 80px !important;
+    width: 160px !important;
   }
 
   .uniqueness-arrow-icon {
-    width: 24px !important;
-    height: 24px !important;
-  }
-
-  .uniqueness-features-container {
-    gap: 1rem !important;
-    margin-bottom: 2rem !important;
+    width: 20px !important;
+    height: 20px !important;
   }
 
   .uniqueness-feature-card {
@@ -159,12 +172,13 @@
   }
 
   .uniqueness-check-icon {
-    width: 30px !important;
-    height: 30px !important;
+    width: 35px !important;
+    height: 35px !important;
+    transform: translateY(-8px) !important;
   }
 
   .uniqueness-feature-text {
-    font-size: 22px !important;
+    font-size: 20px !important;
     line-height: 1.3 !important;
   }
 
@@ -197,24 +211,168 @@
   }
 }
 
+/* Button and decorative elements responsive styles */
+@media (max-width: 768px) {
+  .uniqueness-title img {
+    height: 100px !important;
+    width: 200px !important;
+  }
+
+  .uniqueness-decorative-icons {
+    transform: translateY(15px) !important;
+    gap: 3px !important;
+    margin-right: 10px !important;
+  }
+
+  .uniqueness-decorative-icons > div:first-child {
+    width: 10px !important;
+    height: 10px !important;
+  }
+
+  .uniqueness-decorative-icons > div:nth-child(2) {
+    border-top: 12px solid transparent !important;
+    border-bottom: 12px solid transparent !important;
+    border-right: 16px solid #cf1c71 !important;
+  }
+
+  .uniqueness-decorative-icons > div:last-child {
+    border-top: 18px solid transparent !important;
+    border-bottom: 18px solid transparent !important;
+    border-right: 22px solid #e58958 !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .uniqueness-decorative-icons {
+    display: none !important;
+  }
+  
+  .uniqueness-button-with-image {
+    flex-wrap: nowrap;
+    justify-content: flex-end !important;
+  }
+}
+
+/* Promo Section Responsive Styles */
+.uniqueness-promo-section {
+  position: relative;
+  z-index: 2;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media (max-width: 992px) {
+  .uniqueness-promo-section {
+    flex-direction: column !important;
+    align-items: center !important;
+    gap: 2rem !important;
+    padding: 0 1rem !important;
+    justify-content: center !important;
+  }
+
+  .uniqueness-left-content {
+    order: 1;
+    align-items: center !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+  }
+
+  .uniqueness-phone-container {
+    order: 2;
+    margin-right: 0 !important;
+    justify-content: center !important;
+  }
+
+  .uniqueness-phone-image {
+    width: 240px !important;
+    margin-right: 0 !important;
+    transform: rotate(0deg) !important;
+  }
+}
+
+/* Button responsive styles */
+@media (max-width: 768px) {
+  .uniqueness-button-wrapper img {
+    width: 320px !important;
+    max-width: 85vw !important;
+  }
+
+  .uniqueness-button-wrapper span {
+    font-size: 24px !important;
+  }
+
+  .uniqueness-phone-image {
+    width: 200px !important;
+    margin-right: 0 !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .uniqueness-promo-section {
+    margin-top: 3rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .uniqueness-button-wrapper img {
+    width: 260px !important;
+    max-width: 85vw !important;
+  }
+
+  .uniqueness-button-wrapper span {
+    font-size: 22px !important;
+  }
+
+  .uniqueness-phone-image {
+    width: 180px !important;
+    margin-right: 0 !important;
+    transform: rotate(0deg) !important;
+  }
+
+  .uniqueness-promo-section {
+    gap: 1.5rem !important;
+    margin-top: 2rem !important;
+    padding: 0 0.5rem !important;
+  }
+}
+
 /* Extra small screens */
 @media (max-width: 360px) {
   .uniqueness-title {
+    font-size: 20px !important;
+    gap: 0.3rem !important;
+  }
+
+  .uniqueness-title span {
     font-size: 24px !important;
-    gap: 0.5rem !important;
   }
 
   .uniqueness-logo-image {
-    height: 38px !important;
+    height: 60px !important;
+    width: 120px !important;
   }
 
   .uniqueness-feature-text {
-    font-size: 20px !important;
+    font-size: 18px !important;
   }
 
   .uniqueness-cta-button {
-    font-size: 22px !important;
+    font-size: 20px !important;
     padding: 0.8rem 1.5rem !important;
+  }
+
+  .uniqueness-button-wrapper img {
+    width: 220px !important;
+  }
+
+  .uniqueness-button-wrapper span {
+    font-size: 18px !important;
+  }
+
+  .uniqueness-phone-image {
+    width: 150px !important;
+    margin-right: 0 !important;
+    transform: rotate(0deg) !important;
   }
 }
 

@@ -10,21 +10,120 @@ body {
 }
 
 section {
+  width: 100%;
+  max-width: 100%;
   padding: 2rem 1rem;
-  max-width: 800px;
-  margin: auto;
+  margin: 0;
+  box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 section.problems-section {
   padding: 0 !important;
   max-width: 100% !important;
   margin: 0 !important;
+  width: 100% !important;
 }
 
 section p {
   line-height: 1.6;
+  max-width: 100%;
+  word-wrap: break-word;
 }
 
 section h2 {
   margin-bottom: 1rem;
+  max-width: 100%;
+  word-wrap: break-word;
+}
+
+/* Responsive Layout */
+@media (max-width: 1200px) {
+  section {
+    padding: 2rem 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  section {
+    padding: 1.5rem 1rem;
+  }
+  
+  section h2 {
+    font-size: clamp(24px, 5vw, 44px);
+  }
+  
+  section p {
+    font-size: clamp(18px, 4vw, 35px);
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding: 1rem 0.75rem;
+  }
+  
+  section h2 {
+    font-size: clamp(20px, 6vw, 32px);
+  }
+  
+  section p {
+    font-size: clamp(16px, 4.5vw, 28px);
+  }
+}
+
+/* Ensure images are responsive */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Prevent text overflow */
+* {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+/* Additional responsive fixes for common components */
+.header,
+header {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+div,
+section,
+article,
+main {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+/* Ensure video elements don't cause overflow */
+video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Fix for potential margin collapse issues */
+section + section {
+  margin-top: 0;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 360px) {
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.8em !important;
+  }
+  
+  h2 {
+    font-size: 1.5em !important;
+  }
 }

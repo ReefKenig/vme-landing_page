@@ -3,6 +3,7 @@ import leftArrowComplex from "../assets/left_arrow-complex.png";
 import phoneImage from "../assets/phone.png";
 import vmeLogo from "../assets/Vme_logo-heart.png";
 import buttonImage from "../assets/button.png";
+import mobileImage from "../assets/mobile.png";
 import "../styles/uniqueness.css";
 
 export default function UniquenessSection() {
@@ -14,8 +15,14 @@ export default function UniquenessSection() {
         {/* Header with title */}
         <div style={styles.header} className="uniqueness-header">
           <h1 style={styles.title} className="uniqueness-title">
+            <div style={styles.decorativeIcons} className="uniqueness-decorative-icons">
+            <div style={styles.dot}></div>
+
+              <div style={styles.arrowMagenta}></div>
+              <div style={styles.arrowOrange}></div>
+            </div>
             <span style={styles.titleText}>מה שונה ב </span>
-            <img src={vmeLogo} alt="Vme Logo" style={styles.logoImage}  />
+            <img src={vmeLogo} alt="Vme Logo" style={styles.logoImage} className="uniqueness-logo-image" />
           </h1>
         </div>
 
@@ -57,11 +64,19 @@ export default function UniquenessSection() {
           </div>
         </div>
 
-        {/* Button */}
-        <div style={styles.buttonContainer}>
-          <div style={styles.buttonWrapper}>
-            <img src={buttonImage} alt="button" style={styles.buttonImg} />
-            <span style={styles.buttonText}>איפה נרשמים?</span>
+        {/* Promotional Section - Button and Phone */}
+        <div style={styles.promoSection} className="uniqueness-promo-section">
+          {/* Registration Button - Center */}
+          <div style={styles.leftContent} className="uniqueness-left-content">
+            <div style={styles.buttonWrapper} className="uniqueness-button-wrapper">
+              <img src={buttonImage} alt="button" style={styles.buttonImg} />
+              <span style={styles.buttonText}>איפה נרשמים?</span>
+            </div>
+          </div>
+
+          {/* Mobile Phone - Right Edge */}
+          <div style={styles.phoneContainer} className="uniqueness-phone-container">
+            <img src={mobileImage} alt="mobile" style={styles.phoneImage} className="uniqueness-phone-image" />
           </div>
         </div>
       </div>
@@ -97,7 +112,7 @@ const styles = {
     left: "5%",
     width: "25%",
     height: "20%",
-    backgroundColor: "##d8e5e5",
+    backgroundColor: "#d8a0d8",
     borderRadius: "30% 50% 40% 60%",
     zIndex: 0,
   },
@@ -107,6 +122,7 @@ const styles = {
     margin: "0",
     padding: "0",
     zIndex: 1,
+    overflowX: "hidden",
   },
   header: {
     display: "flex",
@@ -160,10 +176,10 @@ const styles = {
   featureCard: {
     backgroundColor: "#ffffff",
     borderRadius: "20px",
-    padding: "1rem 1.5rem",
+    padding: "1.5rem 2rem",
     display: "flex",
     alignItems: "center",
-    gap: "1.2rem",
+    gap: "1.5rem",
     boxShadow: "0 4px 12px rgba(0, 0, 0, 0.08)",
     transition: "transform 0.2s ease, box-shadow 0.2s ease",
   },
@@ -218,22 +234,58 @@ const styles = {
     whiteSpace: "nowrap",
     flex: "0 0 auto",
   },
-  buttonContainer: {
+  promoSection: {
     display: "flex",
-    justifyContent: "center",
+    flexDirection: "row",
     alignItems: "center",
-    marginTop: "2rem",
-    padding: "0 1.5rem",
+    justifyContent: "space-between",
+    gap: "0",
+    marginTop: "4rem",
+    padding: "0",
+    width: "100%",
+    maxWidth: "100%",
+    margin: "4rem 0 0 0",
+    boxSizing: "border-box",
+    position: "relative",
+  },
+  leftContent: {
+    flex: "1",
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingLeft: "2rem",
+    paddingRight: "0",
+  },
+  phoneContainer: {
+    flex: "0 0 auto",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "flex-end",
+    marginRight: "0",
+    paddingRight: "0",
+  },
+  phoneImage: {
+    width: "320px",
+    height: "auto",
+    objectFit: "contain",
+    transform: "rotate(8deg)",
+    filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.15))",
+    marginRight: "-20px",
   },
   buttonWrapper: {
     position: "relative",
     display: "inline-block",
     cursor: "pointer",
+    flexShrink: 0,
   },
   buttonImg: {
-    width: "500px",
+    width: "100%",
+    maxWidth: "450px",
     height: "auto",
     display: "block",
+    margin: "0",
+    filter: "drop-shadow(0 6px 15px rgba(207, 28, 113, 0.25))",
   },
   buttonText: {
     position: "absolute",
@@ -245,5 +297,65 @@ const styles = {
     color: "#ffffff",
     whiteSpace: "nowrap",
     pointerEvents: "none",
+  },
+  decorativeIcons: {
+    display: "flex",
+    alignItems: "center",
+    gap: "5px",
+    marginRight: "15px",
+    transform: "translateY(30px)",
+  },
+  arrowOrange: {
+    width: 0,
+    height: 0,
+    borderTop: "25px solid transparent",
+    borderBottom: "25px solid transparent",
+    borderRight: "32px solid #e58958",
+    position: "relative",
+    marginLeft: "-5px",
+  },
+  arrowMagenta: {
+    width: 0,
+    height: 0,
+    borderTop: "15px solid transparent",
+    borderBottom: "15px solid transparent",
+    borderRight: "20px solid #cf1c71",
+    position: "relative",
+    marginLeft: "-15px",
+    transform: "translateY(0px)",
+  },
+  dot: {
+    width: "12px",
+    height: "12px",
+    borderRadius: "50%",
+    backgroundColor: "#e58958",
+    marginLeft: "5px",
+  },
+  buttonDecorativeArrows: {
+    display: "flex",
+    alignItems: "flex-end",
+    gap: "10px",
+    marginBottom: "1rem",
+    alignSelf: "flex-end",
+    paddingRight: "5rem",
+  },
+  buttonArrowOrange: {
+    width: 0,
+    height: 0,
+    borderLeft: "80px solid transparent",
+    borderRight: "80px solid transparent",
+    borderBottom: "100px solid #e58958",
+    position: "relative",
+    marginBottom: "-5px",
+  },
+  buttonArrowMagenta: {
+    width: 0,
+    height: 0,
+    borderLeft: "65px solid transparent",
+    borderRight: "65px solid transparent",
+    borderBottom: "80px solid #cf1c71",
+    position: "relative",
+    marginBottom: "-50px",
+    transform: "translateX(-15px)",
   },
 };
