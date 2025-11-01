@@ -34,7 +34,7 @@ export default function RegistrationForm({ referrer }) {
   };
 
   return (
-    <section>
+    <section id="registration">
       <div className="intro">
         <p>סקרנתם אותי! איך מתקדמים?</p>
         <h2>כאן תעשו את הצעד הבא לעבר אהבה</h2>

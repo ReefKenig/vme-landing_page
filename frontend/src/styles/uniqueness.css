@@ -1,0 +1,228 @@
+/* === Headline: always single-line layout === */
+.headline {
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 12px;
+  white-space: nowrap;
+  overflow: hidden;
+  transform: scale(0.9);
+  transform-origin: center;
+}
+
+#arrow {
+  width: clamp(45px, 8vw, 80px);
+  height: auto;
+  opacity: 0.8;
+  margin: 0;
+  padding-top: 15px;
+  /* padding-top: 20px; */
+}
+
+.headline h1 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  margin: 0;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+#logo {
+  width: clamp(400px, 10vw, 1200px);
+  height: auto;
+  opacity: 1;
+  margin: 0;
+  padding-bottom: 45px;
+}
+
+.checklist {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.box {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border-radius: 20px;
+  width: 80%;
+  margin: 16px 0;
+  justify-self: center;
+  align-self: center;
+}
+
+.box img[alt="checkmark"] {
+  margin-right: 16px;
+}
+
+img[alt="checkmark"] {
+  width: 42px;
+  height: auto;
+  margin-top: 16px;
+  opacity: 100;
+}
+
+.box p {
+  margin-right: 12px;
+  font-size: 1.25rem;
+  align-self: center;
+}
+
+.bottom-line {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.bottom-line a {
+  margin: 20px auto;
+  position: relative;
+  z-index: 2;
+}
+
+a {
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  max-height: 50px;
+  background-color: #d4317d;
+  color: white;
+  border: none;
+  border-radius: 999px;
+  padding: 12px 36px;
+  font-size: 1.1rem;
+  text-decoration: none;
+  cursor: pointer;
+  z-index: 1;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+a::after {
+  content: "";
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  width: 100%;
+  height: 100%;
+  background-color: #e58858;
+  border-radius: inherit;
+  z-index: -1;
+}
+
+/* Phone image stays on the left edge */
+img[alt="phone"] {
+  position: absolute;
+  right: 62.5%; /* restore desktop placement */
+  width: clamp(18rem, 25vw, 25rem);
+  height: auto;
+  z-index: 1;
+  opacity: 1;
+  pointer-events: none;
+  transform: translateX(-15%); /* move slightly left, off-screen */
+}
+
+/* === Tablet view === */
+@media (max-width: 1024px) {
+  .box {
+    font-size: 1.1rem;
+  }
+
+  img[alt="phone"] {
+    right: 55%;
+    width: clamp(14rem, 30vw, 22rem);
+    transform: translateX(-30%);
+  }
+}
+
+/* === Mobile view === */
+@media (max-width: 768px) {
+  section {
+    padding: 0 1rem;
+  }
+
+  /* Checklist boxes stretch nicely on mobile */
+  .checklist {
+    width: 100%;
+  }
+
+  .box {
+    width: 95%;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 0.75rem;
+  }
+
+  .box img[alt="checkmark"] {
+    width: 32px;
+    margin: 0.5rem 0.75rem 0 0;
+  }
+
+  .box p {
+    font-size: 1rem;
+    line-height: 1.4;
+  }
+
+  /* Button + phone layout */
+  .bottom-line {
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+  }
+
+  .bottom-line a {
+    width: auto;
+    min-width: 140px;
+    max-width: 160px;
+    padding: 10px 24px;
+    margin: 20px auto 0;
+    display: block;
+    font-size: 1rem;
+  }
+
+  img[alt="phone"] {
+    right: 72.5%;
+    width: clamp(10rem, 35vw, 18rem);
+    transform: translateX(-25%);
+  }
+}
+
+/* === Extra small phones === */
+@media (max-width: 640px) {
+  .headline {
+    transform: scale(0.8);
+    gap: 8px;
+  }
+
+  #arrow {
+    width: clamp(35px, 15vw, 140px);
+    padding-top: 10px;
+  }
+
+  .headline h1 {
+    font-size: clamp(1.5rem, 8vw, 5rem);
+  }
+
+  #logo {
+    width: clamp(300px, 30vw, 600px);
+    padding-bottom: clamp(10px, 5vw, 45px);
+  }
+
+  .box p {
+    font-size: 0.95rem;
+  }
+
+  img[alt="phone"] {
+    width: 14rem;
+    left: -25%;
+  }
+}
