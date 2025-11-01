@@ -1,6 +1,7 @@
 /* === Headline: always single-line layout === */
 .headline {
   width: 100%;
+  max-width: none;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -9,6 +10,8 @@
   gap: 12px;
   white-space: nowrap;
   overflow: hidden;
+  transform: scale(0.9);
+  transform-origin: center;
 }
 
 #arrow {
@@ -16,6 +19,8 @@
   height: auto;
   opacity: 0.8;
   margin: 0;
+  padding-top: 15px;
+  /* padding-top: 20px; */
 }
 
 .headline h1 {
@@ -26,10 +31,11 @@
 }
 
 #logo {
-  width: clamp(60px, 10vw, 120px);
+  width: clamp(400px, 10vw, 1200px);
   height: auto;
   opacity: 1;
-  transform: translateY(12px);
+  margin: 0;
+  padding-bottom: 45px;
 }
 
 .checklist {
@@ -127,25 +133,6 @@ img[alt="phone"] {
 
 /* === Tablet view === */
 @media (max-width: 1024px) {
-  .headline {
-    gap: 8px;
-    scale: 0.9;
-  }
-
-  .headline h1 {
-    font-size: 2.3rem;
-  }
-
-  #arrow {
-    width: 120px;
-    margin-top: 10px;
-  }
-
-  #logo {
-    transform: translateY(-45px);
-    width: 100px;
-  }
-
   .box {
     font-size: 1.1rem;
   }
@@ -161,25 +148,6 @@ img[alt="phone"] {
 @media (max-width: 768px) {
   section {
     padding: 0 1rem;
-  }
-
-  /* Keep headline inline === */
-  .headline {
-    justify-content: center;
-    gap: 8px;
-  }
-
-  #arrow {
-    width: 50px;
-  }
-
-  .headline h1 {
-    font-size: 1.8rem;
-  }
-
-  #logo {
-    width: 65px;
-    transform: translateY(8px);
   }
 
   /* Checklist boxes stretch nicely on mobile */
@@ -229,13 +197,24 @@ img[alt="phone"] {
 }
 
 /* === Extra small phones === */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
+  .headline {
+    transform: scale(0.8);
+    gap: 8px;
+  }
+
+  #arrow {
+    width: clamp(35px, 15vw, 140px);
+    padding-top: 10px;
+  }
+
   .headline h1 {
-    font-size: 1.6rem;
+    font-size: clamp(1.5rem, 8vw, 5rem);
   }
 
   #logo {
-    width: 65px;
+    width: clamp(300px, 30vw, 600px);
+    padding-bottom: clamp(10px, 5vw, 45px);
   }
 
   .box p {
