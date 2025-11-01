@@ -3,10 +3,10 @@
   width: 100%;
   max-width: none;
   display: flex;
-  flex-direction: row;
+  flex-direction: row !important;
+  flex-wrap: nowrap;
   align-items: center;
   justify-content: center;
-  flex-wrap: nowrap;
   gap: 12px;
   white-space: nowrap;
   overflow: hidden;
@@ -131,6 +131,9 @@ img[alt="phone"] {
 
 /* === Tablet view === */
 @media (max-width: 1024px) {
+  .headline {
+  }
+  
   .box {
     font-size: 1.1rem;
   }
