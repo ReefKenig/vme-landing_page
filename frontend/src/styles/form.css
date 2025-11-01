@@ -94,6 +94,12 @@ input::placeholder {
   cursor: pointer;
 }
 
+.checkboxes label a {
+  background-color: transparent;
+  position: static;
+  padding: 5px;
+}
+
 /* === Submit button === */
 .submitButton {
   position: relative;
