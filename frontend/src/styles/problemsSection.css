@@ -1,0 +1,108 @@
+/* === Section Layout === */
+.problems-section {
+  background-color: #eef3f3;
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* === Container === */
+.problems-section .container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* === Headings & Text === */
+.heading,
+.call-to-action,
+.transition-text,
+.list-text {
+  color: #cf1c71;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.heading {
+  font-size: clamp(28px, 5vw, 44px);
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+.call-to-action {
+  font-size: clamp(20px, 4vw, 35px);
+  font-weight: 700;
+  margin-top: 2rem;
+}
+
+.transition-text {
+  font-size: clamp(20px, 4vw, 35px);
+  font-weight: 400;
+  line-height: 1.5;
+  margin: 2rem 0;
+}
+
+.list-text {
+  font-size: clamp(20px, 4vw, 35px);
+  font-weight: 400;
+  text-align: right;
+}
+
+/* === List === */
+.list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  max-width: 800px;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: clamp(0.5rem, 2vw, 1rem);
+  width: 100%;
+}
+
+/* === Arrow icon === */
+.arrow {
+  width: clamp(1.5rem, 4vw, 2.5rem);
+  height: auto;
+  overflow: hidden;
+  padding-bottom: 10px;
+  opacity: 1;
+}
+
+/* === Responsive Adjustments === */
+@media (max-width: 768px) {
+  .problems-section {
+    padding: 2rem 1rem;
+  }
+
+  .list-container {
+    align-items: center;
+  }
+
+  .list-item {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .arrow {
+    width: clamp(1.2rem, 4vw, 2rem);
+  }
+
+  .list-text {
+    font-size: clamp(18px, 5vw, 28px);
+  }
+}
