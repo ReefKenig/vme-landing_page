@@ -96,8 +96,7 @@
   }
 
   .list-item {
-    justify-content: center;
-    text-align: center;
+    justify-content: flex-start;
   }
 
   .arrow {
@@ -105,6 +104,10 @@
   }
 
   .list-text {
-    font-size: 1.1rem;
+    font-size: 1.5rem;
+  }
+
+  .transition-text {
+    font-size: 1.5rem;
   }
 }
