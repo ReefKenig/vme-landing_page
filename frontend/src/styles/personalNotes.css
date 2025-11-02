@@ -163,7 +163,7 @@ h3 {
 
   #heart-key {
     width: 100%;
-    margin: -9rem auto;
+    margin: -15rem auto;
     max-width: 500px;
   }
 
@@ -175,22 +175,34 @@ h3 {
 
   #hands {
     width: 100%;
-    margin-top: -4rem;
-    margin-bottom: -4rem;
+    margin-top: -10rem;
+    margin-bottom: -12rem;
     transform: translateX(2%);
   }
 
   h3 {
-    font-size: 18px;
+    font-size: 1.7rem;
   }
 
   p {
-    font-size: 0.95rem;
+    font-size: 1.5rem !important;
     line-height: 1.6;
     padding: 0 1rem;
+    margin: -2rem 0;
   }
 
   .signature {
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 500px) {
+  #heart-key {
+    margin: -8rem auto;
+  }
+
+  #hands {
+    margin-top: -6rem;
+    margin-bottom: -8rem;
   }
 }
