@@ -1,15 +1,14 @@
 import "../styles/videoSection.css";
 import logoHeart from "../assets/images/Vme_logo-heart.png";
 
+const VIDEO =
+  "https://vme-landingpage-videos.s3.eu-north-1.amazonaws.com/newIntro.mp4";
+
 export default function VideoSection() {
   return (
     <section className="video-section">
       <div className="video-container">
-        <video
-          src="https://vme-landingpage-videos.s3.eu-north-1.amazonaws.com/intro+vme.mp4"
-          controls
-          className="video"
-        ></video>
+        <video src={VIDEO} controls className="video"></video>
       </div>
 
       <div className="text-container">
