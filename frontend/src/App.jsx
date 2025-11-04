@@ -6,15 +6,15 @@ import UniqunessSection from "./components/UniquenessSection";
 import PersonalNotesSection from "./components/PersonalNotesSection";
 import RegistrationForm from "./components/RegistrationForm";
 import ThankYouPage from "./components/ThankYouPage";
-import TopBar from './components/TopBar';
-import Header from './components/Header';
-import ProblemsSection from './components/ProblemsSection';
+import TopBar from "./components/TopBar";
+import Header from "./components/Header";
+import ProblemsSection from "./components/ProblemsSection";
 function App() {
   const [referrer, setReferrer] = useState("");
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    const ref = urlParams.get("ref") || "unknown";
+    const ref = urlParams.get("ref") || null;
     setReferrer(ref);
   }, []);
 

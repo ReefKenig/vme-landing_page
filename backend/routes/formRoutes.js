@@ -1,7 +1,6 @@
 import express from "express";
 import axios from "axios";
 import { sendConfirmationEmail } from "../services/emailService.js";
-// import { scheduleReminder, sendWhatsapp } from "../services/whatsappService.js";
 import User from "../schemas/User.js";
 
 const router = express.Router();
@@ -9,8 +8,16 @@ const router = express.Router();
 router.post("/submit", async (req, res) => {
   const { firstname, lastname, sex, age, city, phone, email, referrer } =
     req.body;
-    const user = new User({firstname, lastname, sex, age, city, phone, email, referrer  });
-    // sendWhatsapp(user.phone, "hi there!");
+  const user = new User({
+    firstname,
+    lastname,
+    sex,
+    age,
+    city,
+    phone,
+    email,
+    referrer,
+  });
   if (
     !firstname ||
     !lastname ||
@@ -56,7 +63,7 @@ router.post("/submit", async (req, res) => {
     // if (phone) {
     //   scheduleReminder(phone, firstname);
     // }
- 
+
     await user.save();
     res
       .status(200)
@@ -67,15 +74,12 @@ router.post("/submit", async (req, res) => {
   }
 });
 
-
-
 router.post("/calendly/webhook", async (req, res) => {
-
   try {
     const event = req.body;
 
     if (event.event === "invitee.created") {
-       const email = event.payload?.email;
+      const email = event.payload?.email;
       console.log("New Calendly booking from:", email);
 
       // Update the user in MongoDB
