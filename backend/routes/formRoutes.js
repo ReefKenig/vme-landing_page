@@ -59,17 +59,28 @@ router.post("/submit", async (req, res) => {
     // Send confirmation email
     await sendConfirmationEmail(email, firstname);
 
-    // Schedule WhatsApp reminder
-    // if (phone) {
-    //   scheduleReminder(phone, firstname);
-    // }
-
     await user.save();
     res
       .status(200)
       .json({ message: "Contact created and email sent", data: response.data });
   } catch (error) {
     console.error("Submission error:", error.response?.data || error.message);
+
+    // Check for hubsport duplicate error
+    const hubspotError = error.response?.data;
+    const isDuplicate =
+      error.response?.status === 409 ||
+      hubspotError?.message?.includes("already exists") ||
+      hubspotError?.category === "CONFLICT";
+
+    if (isDuplicate) {
+      return res.status(409).json({
+        message:
+          "כתובת האימייל הזו כבר קיימת במערכת. לא ניתן להירשם יותר מפעם אחת",
+      });
+    }
+
+    // Fallback server error
     res.status(500).json({ message: "Submission Failed" });
   }
 });
