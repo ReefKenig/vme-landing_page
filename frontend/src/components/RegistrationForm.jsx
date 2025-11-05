@@ -26,8 +26,16 @@ export default function RegistrationForm({ referrer }) {
       console.log("Response:", response.data);
       navigate("/thank-you");
     } catch (error) {
-      console.error("Submission failed:", error);
-      alert("שליחה נכשלה. אנא נסו שוב מאוחר יותר.");
+      console.error("Axios error:", error.response?.data || error.message);
+
+      // Check if this is the specific duplicate email error
+      if (error.response?.status === 409 && error.response?.data?.message) {
+        // Show the specific message from the server
+        alert(error.response.data.message);
+      } else {
+        // Generic error message
+        alert("שליחה נכשלה. אנא נסו שוב מאוחר יותר.");
+      }
     } finally {
       setSubmitting(false);
     }
