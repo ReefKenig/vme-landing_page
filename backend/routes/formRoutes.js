@@ -18,17 +18,12 @@ router.post("/submit", async (req, res) => {
     email,
     referrer,
   });
-  if (
-    !firstname ||
-    !lastname ||
-    !sex ||
-    !age ||
-    !city ||
-    !phone ||
-    !email ||
-    !referrer
-  ) {
+  if (!firstname || !lastname || !sex || !age || !city || !phone || !email) {
     return res.status(400).json({ message: "Missing required fields" });
+  }
+
+  if (!referrer) {
+    return res.status(400).json({ message: "Referrer is required" });
   }
 
   try {
