@@ -1,5 +1,6 @@
 import "../styles/videoSection.css";
 import logoHeart from "../assets/images/Vme_logo-heart.png";
+import poster from "../assets/images/video-poster.png";
 
 const VIDEO =
   "https://vme-landingpage-videos.s3.eu-north-1.amazonaws.com/newIntro.mp4";
@@ -8,7 +9,7 @@ export default function VideoSection() {
   return (
     <section className="video-section">
       <div className="video-container">
-        <video src={VIDEO} controls className="video"></video>
+        <video src={VIDEO} controls className="video" poster={poster}></video>
       </div>
 
       <div className="text-container">
