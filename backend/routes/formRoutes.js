@@ -8,6 +8,18 @@ const router = express.Router();
 router.post("/submit", async (req, res) => {
   const { firstname, lastname, sex, age, city, phone, email, referrer } =
     req.body;
+
+  if (!firstname || !lastname || !sex || !age || !city || !phone || !email) {
+    return res.status(400).json({ message: "נא למלא את כל השדות" });
+  }
+
+  if (!referrer) {
+    return res.status(400).json({
+      message:
+        "ההרשמה חייבת להתבצע דרך קישור הפנייה. אם הגעת לכאן ללא קישור, אנא פנה לצוות V-me",
+    });
+  }
+
   const user = new User({
     firstname,
     lastname,
@@ -18,13 +30,6 @@ router.post("/submit", async (req, res) => {
     email,
     referrer,
   });
-  if (!firstname || !lastname || !sex || !age || !city || !phone || !email) {
-    return res.status(400).json({ message: "Missing required fields" });
-  }
-
-  if (!referrer) {
-    return res.status(400).json({ message: "Referrer is required" });
-  }
 
   try {
     // HubSpot API endpoint
@@ -54,29 +59,46 @@ router.post("/submit", async (req, res) => {
     // Send confirmation email
     await sendConfirmationEmail(email, firstname);
 
+    // Try to save the user in MongoDB
     await user.save();
+
     res
       .status(200)
       .json({ message: "Contact created and email sent", data: response.data });
   } catch (error) {
     console.error("Submission error:", error.response?.data || error.message);
 
-    // Check for hubsport duplicate error
-    const hubspotError = error.response?.data;
-    const isDuplicate =
+    // Check for HubSpot duplicate email error
+    const hubSpotError = error.response?.data;
+    const isHubSpotDuplicateError =
       error.response?.status === 409 ||
-      hubspotError?.message?.includes("already exists") ||
-      hubspotError?.category === "CONFLICT";
+      hubSpotError?.message?.includes("already exists") ||
+      hubSpotError?.category === "CONFLICT";
 
-    if (isDuplicate) {
+    if (isHubSpotDuplicateError) {
       return res.status(409).json({
-        message:
-          "כתובת האימייל הזו כבר קיימת במערכת. לא ניתן להירשם יותר מפעם אחת",
+        message: "נראה שנרשמת כבר עם כתובת מייל זו. אין צורך להירשם שוב :)",
+      });
+    }
+
+    // Check for Mongoose/Mongoduplicate email error
+    if (error.code === 11000 && error.keyPattern?.email) {
+      return res.status(409).json({
+        message: "נראה שנרשמת כבר עם כתובת מייל זו. אין צורך להירשם שוב :)",
+      });
+    }
+
+    // Check for other validation errors
+    if (error.name === "ValidationError") {
+      return res.status(400).json({
+        message: `נתונים לא תקינים: ${error.message} אנא בדוק את השדות ונסה שוב.`,
       });
     }
 
     // Fallback server error
-    res.status(500).json({ message: "Submission Failed" });
+    res.status(500).json({
+      message: "אירעה שגיאה בשרת... אנא נסו שוב בעוד מספר דקות.",
+    });
   }
 });
 
