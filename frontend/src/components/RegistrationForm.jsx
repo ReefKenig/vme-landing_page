@@ -28,13 +28,15 @@ export default function RegistrationForm({ referrer }) {
     } catch (error) {
       console.error("Axios error:", error.response?.data || error.message);
 
-      // Check if this is the specific duplicate email error
-      if (error.response?.status === 409 && error.response?.data?.message) {
-        // Show the specific message from the server
+      // Check if the backend sent a specific error message
+      if (error.response?.data?.message) {
         alert(error.response.data.message);
+      } else if (error.request) {
+        // The request was made but no response was received
+        alert("שגיאת רשת. אנא בדקו את חיבור האינטרנט ונסו שנית");
       } else {
-        // Generic error message
-        alert("שליחה נכשלה. אנא נסו שוב מאוחר יותר.");
+        // Something happened in setting up the request that triggered an Error
+        alert("אירעה שגיאה לא צפויה. אנא נסו שוב מאוחר יותר.");
       }
     } finally {
       setSubmitting(false);
