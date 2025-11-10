@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
-import "../styles/form.css";
+import "../styles/registrationFormSection.css";
 import logo_m from "../assets/images/Vme_logo-M.png";
 
 export default function RegistrationForm({ referrer }) {
@@ -163,6 +163,13 @@ export default function RegistrationForm({ referrer }) {
         </button>
       </form>
       <img src={logo_m} alt="Logo M" />
+
+      <p className="support-text">
+        נתקלתם בבעיה? מוזמנים לפנות למייל{" "}
+        <a href="mailto:eran@vme-value.com" className="support-link">
+          eran@vme-value.com
+        </a>
+      </p>
     </section>
   );
 }
