@@ -13,7 +13,7 @@ export default function PersonalNotesSection() {
         <img src={logo_me} alt="Logo me" id="logo-me" />
       </div>
       <div className="alignRight">
-        <h3>מסר אישי ממני, המייסדת...</h3>
+        <h3>מסר אישי ממני, המייסדת</h3>
         <p>
           בפנים, כולנו רוצים את אותו הדבר: שייכות ואהבה. למצוא אדם שנרגיש איתו
           חופשיים להיות עצמנו.
