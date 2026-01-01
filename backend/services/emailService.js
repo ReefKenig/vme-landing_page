@@ -18,23 +18,23 @@ export async function sendConfirmationEmail(to, firstname) {
     const mailOptions = {
       from: `"V-Me Team" <${process.env.EMAIL_USER}>`,
       to,
-      subject: "תודה שנרשמת ל-V-Me🎉",
+      subject: "תודה שנרשמת ל-Vme🎉",
       html: `
       <div style="direction:rtl;font-family:sans-serif">
         <h2>היי ${firstname}!</h2>
-        <p>תודה שנרשמת לגרסת הבטא שלנו. בקרוב ניצור איתך קשר</p>
         <p>
-          ניתן כבר לקבוע שיחת היכרות קצרה כאן:
-          <a href=${calendlyLink}>Calendly</a>
+          תודה שנרשמת לגרסת הפיילוט שלנו.
+          <br/>
+          בקרוב ניצור איתך קשר ונשתף בצעד הבא.
+          <br/>
+          <br/>
+          לכל שאלה ניתן לפנות אלינו במייל: <a href="mailto: eran@vme-value.com">eran@vme-value.com</a>
+          <br/>
+          <br/>
+          מחכים להכיר אותך
+          <br/>
+          צוות Vme❤
         </p>
-        <p>
-        במידה ונתקלתם בתקלה בתיאום פגישה מוזמנים לכתוב לנו נדאג לשוב אליכם בהקדם האפשרי🙏:
-        </p>
-        <a href="mailto: eran@vme-value.com">eran@vme-value.com</a>
-        <br/>
-        <br/>
-        <p>מחכים לראותכם!</p>
-        <p>צוות V-Me❤</p>
       </div>
     `,
     };
